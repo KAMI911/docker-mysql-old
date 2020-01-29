@@ -1,4 +1,6 @@
 FROM centos:centos7
+ARG mysql_url
+ARG mysql_asc_url
 
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 
@@ -16,8 +18,8 @@ ENV LANGUAGE en_US:en
 
 ENV LC_ALL en_US.UTF-8
 
-RUN curl -SL "http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73-linux-x86_64-glibc23.tar.gz" -o mysql.tar.gz && \
-    curl -SL "http://mysql.he.net/Downloads/MySQL-5.1/mysql-5.1.73-linux-x86_64-glibc23.tar.gz.asc" -o mysql.tar.gz.asc && \
+RUN curl -SL "$mysql_url" -o mysql.tar.gz && \
+    curl -SL "$mysql_asc_url" -o mysql.tar.gz.asc && \
     gpg --verify mysql.tar.gz.asc && \
     mkdir /usr/local/mysql && \
     tar -xzf mysql.tar.gz -C /usr/local/mysql --strip-components=1 && \
