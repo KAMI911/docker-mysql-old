@@ -7,7 +7,7 @@ RUN groupadd -r mysql && useradd -r -g mysql mysql
 #RUN apt-get update && \
 #    apt-get install -y curl binutils
 
-RUN gpg --keyserver pgp.mit.edu --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5
+RUN gpg --keyserver keyserver.ubuntu.com --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5
 
 #RUN locale-gen en_US.UTF-8 &&\
 #    update-locale
@@ -36,6 +36,8 @@ ENV PATH $PATH:/usr/local/mysql/bin:/usr/local/mysql/scripts
 WORKDIR /usr/local/mysql
 
 VOLUME /var/lib/mysql
+
+VOLUME /var/log/mysql
 
 COPY mysql-5.0/my.cnf /etc/my.cnf
 
