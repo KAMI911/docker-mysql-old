@@ -39,7 +39,7 @@ VOLUME /var/lib/mysql
 
 VOLUME /var/log/mysql
 
-COPY mysql-5.1/my.cnf /etc/my.cnf
+COPY mysql-5.0/my.cnf /etc/my.cnf
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
