@@ -38,5 +38,5 @@ if [ ! -d '/var/lib/mysql/mysql' -a "${1%_safe}" = 'mysqld' ]; then
 	set -- "$@" --init-file="$TEMP_FILE"
 fi
 
-chown -R mysql:mysql /var/lib/mysql
+chown -R mysql:mysql /var/lib/mysql /var/log/mysql
 exec "$@"
