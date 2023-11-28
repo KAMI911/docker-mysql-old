@@ -37,6 +37,8 @@ WORKDIR /usr/local/mysql
 
 VOLUME /var/lib/mysql
 
+COPY mysql-5.0/my.cnf /etc/my.cnf
+
 COPY docker-entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
